@@ -1,0 +1,46 @@
+<core:FragmentDefinition 
+	xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
+
+    <l:Grid defaultSpan="L12 M12 S12" width="auto"  >
+        <l:content>
+            <f:SimpleForm id="BuPaEditForm" 
+                minWidth="1024"
+            maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" 
+            labelSpanL="6" labelSpanM="4" emptySpanL="0" emptySpanM="0"
+            columnsL="2" columnsM="2">
+            <f:content>    
+
+                <core:Title text="Fornecedor" />
+
+                <Label text="Fornecedor" ></Label>
+                <Input id="inputCompanyName" value="{ToBusinessPartner2/CompanyName}" />
+                <Input id="inputLegalForm" value="{ToBusinessPartner2/LegalForm}" />                
+                
+                <Label text="Endereço / Complemento" ></Label>
+                <Input id="inputStreet" value="{ToBusinessPartner2/Street}" />
+                <Input id="inputBuilding" value="{ToBusinessPartner2/Building}" />                
+                
+                <Label text="CEP / Cidade" ></Label>
+                <Input id="inputZIPCode" value="{ToBusinessPartner2/PostalCode}" />
+                <Input id="inputCity" value="{ToBusinessPartner2/City}" />                
+                
+                <Label text="eMail" ></Label>
+                <Input id="inputEmailAddress" value="{ToBusinessPartner2/EmailAddress}" />
+                
+                <Label text="Telefone" ></Label>
+                <Input id="inputPhoneNumber" value="{ToBusinessPartner2/PhoneNumber}" />     
+
+                <Label text=""/>
+                <Button text="Save Changes" icon="sap-icon://save" press="onBuPaSavePress" />
+
+            </f:content>
+            </f:SimpleForm>
+        </l:content>
+    </l:Grid>
+
+</core:FragmentDefinition>

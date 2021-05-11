@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZBOPF_PRODUCT_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="CategoryHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Categoryy"/>
+                </Key>
+                <Property Name="Categoryy" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Categorias" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="ToProducts" Relationship="ZBOPF_PRODUCT_SRV.Category_To_Product" FromRole="FromRole_Category_To_Product" ToRole="ToRole_Category_To_Product"/>
+            </EntityType>
+            <EntityType Name="ProductHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductId"/>
+                </Key>
+                <Property Name="DbKey" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="DB Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProductId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Id Produto"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Categoria"/>
+                <Property Name="ProductPicUrl" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Imagem" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupplierId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Id Fornecedor"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Moeda"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="3" sap:unicode="false" sap:label="Preço"/>
+                <Property Name="ProducName" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Nome Produto"/>
+                <Property Name="SupplierName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Nome Fornecedor"/>
+            </EntityType>
+            <Association Name="Category_To_Product" sap:content-version="1">
+                <End Type="ZBOPF_PRODUCT_SRV.CategoryHeader" Multiplicity="1" Role="FromRole_Category_To_Product"/>
+                <End Type="ZBOPF_PRODUCT_SRV.ProductHeader" Multiplicity="*" Role="ToRole_Category_To_Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Category_To_Product">
+                        <PropertyRef Name="Categoryy"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Category_To_Product">
+                        <PropertyRef Name="Category"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZBOPF_PRODUCT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="CategoryHeaderSet" EntityType="ZBOPF_PRODUCT_SRV.CategoryHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ProductHeaderSet" EntityType="ZBOPF_PRODUCT_SRV.ProductHeader" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="Category_To_ProductSet" Association="ZBOPF_PRODUCT_SRV.Category_To_Product" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="CategoryHeaderSet" Role="FromRole_Category_To_Product"/>
+                    <End EntitySet="ProductHeaderSet" Role="ToRole_Category_To_Product"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://mys4hana:6644/sap/opu/odata/sap/ZBOPF_PRODUCT_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://mys4hana:6644/sap/opu/odata/sap/ZBOPF_PRODUCT_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

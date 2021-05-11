@@ -1,0 +1,27 @@
+<mvc:View
+	controllerName="com.iaj.productmanag.controller.DetailProduct"
+	xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
+
+    <Panel   id="DetailsPanel" width="auto" 
+           class="sapUiResponsiveMargin sapUiNoContentPadding">
+       <headerToolbar>
+         <Toolbar >
+             <ToolbarSpacer/>
+             <Button id="btnDeleteProduct" text="Delete Product"
+                     icon="sap-icon://delete" enabled="true" press="onProductDeletePress" />
+             <Button id="btnCreateProduct" text="Create Product"
+                     icon="sap-icon://create" enabled="true" press="onProductCreatePress" />
+         </Toolbar>
+       </headerToolbar>
+       <content>
+       
+       </content>
+    </Panel>
+
+
+</mvc:View>

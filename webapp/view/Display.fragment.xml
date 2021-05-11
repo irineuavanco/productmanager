@@ -1,0 +1,51 @@
+<core:FragmentDefinition 
+	xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
+
+    <l:Grid defaultSpan="L12 M12 S12" width="auto"  >
+        <l:content>
+            <f:SimpleForm id="ProductDisplayForm" 
+                minWidth="1024"
+            maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" 
+            labelSpanL="6" labelSpanM="4" emptySpanL="0" emptySpanM="0"
+            columnsL="2" columnsM="2">
+            <f:content>    
+                <core:Title text="Produto" />
+                <Label text="Foto Produto" />
+                <Image src="{ProductPicUrl}" width="25%" height="25%"/>
+                <Label text="Nome Produto" ></Label>
+                <Text text="{ProducName}" />
+                <Label text="Id produto" ></Label>
+                <Text text="{ProductId}" />
+                <Label text="Categoria" ></Label>
+                <Text text="{Category}" />
+                <Label text="Preço e Moeda" ></Label>
+                <Text text="{Price} {CurrencyCode}" />        
+                <Label text=""/>
+                <Button text="Editar Produto" icon="sap-icon://edit" press="onProductEditPress" />
+
+                <core:Title text="Fornecedor" />
+                <Label text="Fornecedor" ></Label>
+                <Text  text="{ToBusinessPartner2/CompanyName} {ToBusinessPartner2/LegalForm}" />                       
+                <Label text="Endereço / Complemento" ></Label>
+                <Text text="{ToBusinessPartner2/Street} {ToBusinessPartner2/Building}" />                       
+                <Label text="CEP / Cidade" ></Label>
+                <Text text="{ToBusinessPartner2/PostalCode} {ToBusinessPartner2/City}" />                       
+                <Label text="eMail" ></Label>
+                <Text text="{ToBusinessPartner2/EmailAddress}" />                       
+                <Label text="Telefone" ></Label>
+                <Text text="{ToBusinessPartner2/PhoneNumber}" />       
+                <Label text=""/>
+                <Button text="Editar Fornecedor" icon="sap-icon://edit" press="onBuPaEditPress" />
+
+
+            </f:content>
+            </f:SimpleForm>
+        </l:content>
+    </l:Grid>
+
+</core:FragmentDefinition>
